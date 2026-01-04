@@ -10,6 +10,8 @@ export const metadata = {
   keywords: 'online store, ecommerce, shopping, products, JShope',
 };
 
+import Script from 'next/script';
+
 export default function RootLayout({
   children,
 }: {
@@ -29,6 +31,21 @@ export default function RootLayout({
         <ClientLayoutWrapper>
           {children}
         </ClientLayoutWrapper>
+        
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-B516B2HHXY"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-B516B2HHXY');
+          `}
+        </Script>
       </body>
     </html>
   );

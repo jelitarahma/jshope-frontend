@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JShope Frontend 🛍️
 
-## Getting Started
+JShope adalah aplikasi e-commerce modern yang dibangun menggunakan Next.js. Proyek ini merupakan bagian frontend yang terhubung dengan backend JShope API.
 
-First, run the development server:
+🔗 **Repository:** [https://github.com/jelitarahma/jshope-frontend](https://github.com/jelitarahma/jshope-frontend)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Fitur Utama
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+*   **Belanja Online:** Jelajahi produk, kategori, dan detail produk.
+*   **Keranjang Belanja:** Tambahkan produk ke keranjang dan kelola jumlahnya.
+*   **Autentikasi User:** Login dan Register menggunakan JWT.
+*   **Checkout:** Proses checkout yang mudah.
+*   **Responsive Design:** Tampilan optimal di Desktop dan Mobile.
+*   **Monitoring:** Terintegrasi dengan Google Analytics.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Teknologi yang Digunakan
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+*   **Framework:** [Next.js](https://nextjs.org/) (App Router)
+*   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+*   **HTTP Client:** Axios
+*   **Icons:** Lucide React / Heroicons
+*   **Alerts:** SweetAlert2
 
-## Learn More
+## 📦 Persyaratan Sistem
 
-To learn more about Next.js, take a look at the following resources:
+Sebelum memulai, pastikan Anda telah menginstal:
+*   [Node.js](https://nodejs.org/) (Versi 18 atau terbaru disarankan)
+*   npm (biasanya terinstall otomatis bersama Node.js)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🏃‍♂️ Cara Menjalankan Project (Localhost)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Ikuti langkah-langkah berikut untuk menjalankan project di komputer Anda:
 
-## Deploy on Vercel
+1.  **Clone Repository**
+    ```bash
+    git clone https://github.com/jelitarahma/jshope-frontend.git
+    cd jshope-frontend
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2.  **Install Dependencies**
+    Download semua library yang dibutuhkan:
+    ```bash
+    npm install
+    # atau jika menggunakan yarn
+    yarn install
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3.  **Jalankan Server Development**
+    Mulai aplikasi dalam mode development:
+    ```bash
+    npm run dev
+    ```
+
+4.  **Buka di Browser**
+    Akses aplikasi melalui alamat: [http://localhost:3000](http://localhost:3000)
+
+## 📝 Konfigurasi API
+
+Aplikasi ini secara default terhubung ke backend production:
+*   **Base URL:** `https://jshope-backend-phs3.vercel.app/jshope`
+*   Konfigurasi ini terdapat di file `lib/api.js`.
+
+---
+*Dibuat oleh Jelita Rahma*
