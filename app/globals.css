@@ -1,26 +1,505 @@
 @import "tailwindcss";
 
+/* ============================================
+   JSHOPE BY JELITA RAHMA - DESIGN SYSTEM
+   Warm amber/orange color palette
+   ============================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Colors - Warm Amber/Orange */
+  --color-primary-50: #fffbeb;
+  --color-primary-100: #fef3c7;
+  --color-primary-200: #fde68a;
+  --color-primary-300: #fcd34d;
+  --color-primary-400: #fbbf24;
+  --color-primary-500: #f59e0b;
+  --color-primary-600: #d97706;
+  --color-primary-700: #b45309;
+  --color-primary-800: #92400e;
+  --color-primary-900: #78350f;
+
+  /* Secondary Colors - Warm Red/Coral */
+  --color-secondary-50: #fff5f5;
+  --color-secondary-100: #ffe4e4;
+  --color-secondary-200: #fecaca;
+  --color-secondary-300: #fca5a5;
+  --color-secondary-400: #f87171;
+  --color-secondary-500: #ef4444;
+  --color-secondary-600: #dc2626;
+
+  /* Accent Colors - Warm Green */
+  --color-accent-50: #f0fdf4;
+  --color-accent-100: #dcfce7;
+  --color-accent-200: #bbf7d0;
+  --color-accent-500: #22c55e;
+  --color-accent-600: #16a34a;
+
+  /* Neutral Colors - Warm Gray */
+  --color-neutral-50: #fafaf9;
+  --color-neutral-100: #f5f5f4;
+  --color-neutral-200: #e7e5e4;
+  --color-neutral-300: #d6d3d1;
+  --color-neutral-400: #a8a29e;
+  --color-neutral-500: #78716c;
+  --color-neutral-600: #57534e;
+  --color-neutral-700: #44403c;
+  --color-neutral-800: #292524;
+  --color-neutral-900: #1c1917;
+
+  /* Background Colors - Soft Green Tint */
+  --bg-cream: #f5faf7;
+  --bg-warm-white: #f8fcf9;
+  --bg-soft-orange: #f0f7f2;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-warm: 0 10px 40px -10px rgba(245, 158, 11, 0.3);
+
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* Font Families */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Playfair Display', serif;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--bg-cream);
+  --color-foreground: var(--color-neutral-800);
+  --font-sans: var(--font-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  background: var(--bg-cream);
+  color: var(--color-neutral-800);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove underline from all links globally */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-neutral-900);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Animation Classes */
+.animate-fade-in { animation: fadeIn 0.5s ease forwards; }
+.animate-fade-in-up { animation: fadeInUp 0.6s ease forwards; }
+.animate-fade-in-down { animation: fadeInDown 0.6s ease forwards; }
+.animate-slide-in-left { animation: slideInLeft 0.6s ease forwards; }
+.animate-slide-in-right { animation: slideInRight 0.6s ease forwards; }
+.animate-scale-in { animation: scaleIn 0.4s ease forwards; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-pulse-soft { animation: pulse-soft 2s ease-in-out infinite; }
+.animate-bounce-soft { animation: bounce-soft 2s ease-in-out infinite; }
+
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-500 { animation-delay: 500ms; }
+
+/* Skeleton Loading */
+.skeleton {
+  background: linear-gradient(90deg, var(--color-neutral-200) 25%, var(--color-neutral-100) 50%, var(--color-neutral-200) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-accent-200);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-500);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-600);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary-400) 0%, var(--color-primary-600) 100%);
+}
+
+.gradient-warm {
+  background: linear-gradient(135deg, var(--color-primary-300) 0%, var(--color-secondary-400) 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-secondary-500) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-warm {
+  background: rgba(255, 251, 235, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Card Hover Effect */
+.card-hover {
+  transition: all var(--transition-normal);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Button Base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-600) 100%);
+  color: white;
+  box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.4);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px 0 rgba(245, 158, 11, 0.5);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--color-primary-600);
+  border: 2px solid var(--color-primary-500);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--color-primary-50);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, var(--color-secondary-500) 0%, var(--color-secondary-600) 100%);
+  color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--color-secondary-600) 0%, #b91c1c 100%);
+}
+
+/* Input Base */
+.input-base {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-size: 0.9375rem;
+  border: 2px solid var(--color-neutral-200);
+  border-radius: var(--radius-lg);
+  background: white;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.input-base:focus {
+  border-color: var(--color-primary-400);
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2);
+}
+
+.input-base::placeholder {
+  color: var(--color-neutral-400);
+}
+
+/* Container */
+.container-custom {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ============================================
+   COMPONENT STYLES
+   ============================================ */
+
+/* Product Card */
+.product-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  border: 1px solid var(--color-neutral-100);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-primary-200);
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-image {
+  transition: transform var(--transition-slow);
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+}
+
+.badge-primary {
+  background: var(--color-primary-100);
+  color: var(--color-primary-700);
+}
+
+.badge-success {
+  background: var(--color-accent-100);
+  color: var(--color-accent-600);
+}
+
+.badge-danger {
+  background: var(--color-secondary-100);
+  color: var(--color-secondary-600);
+}
+
+/* ============================================
+   PAGE SPECIFIC STYLES
+   ============================================ */
+
+/* Hero Section */
+.hero-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(251, 191, 36, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(34, 197, 94, 0.08) 0%, transparent 40%);
+}
+
+/* Section Headers */
+.section-header {
+  position: relative;
+  display: inline-block;
+}
+
+.section-header::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary-500) 0%, var(--color-secondary-400) 100%);
+  border-radius: var(--radius-full);
+}
+
+/* Admin Sidebar */
+.admin-sidebar {
+  background: linear-gradient(180deg, var(--color-primary-600) 0%, var(--color-primary-800) 100%);
+}
+
+.admin-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+}
+
+.admin-nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.admin-nav-link.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+@media (max-width: 768px) {
+  .container-custom {
+    padding: 0 1rem;
+  }
+  
+  .btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.8125rem;
+  }
 }
