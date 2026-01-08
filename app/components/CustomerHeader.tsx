@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { categoryService, Category } from '@/lib/services/categoryService';
+import brandBnW from "@/app/assets/images/brand-bnw.png";
 
 const COLORS = {
   primary: '#1B5E20',
@@ -55,8 +56,8 @@ export default function CustomerHeader() {
 
   return (
     <>
-      <div style={{ backgroundColor: COLORS.primary }} className="py-3">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style={{ backgroundColor: '#1b5e20' }} className="py-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-2 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-white text-sm">
             <p className="text-center sm:text-left flex items-center mb-0">
               ✨ <span className="font-medium ml-1">Free Shipping</span> <span className="ml-1">on orders over Rp 500.000</span>
@@ -71,7 +72,7 @@ export default function CustomerHeader() {
             <div className="flex items-center gap-6">
               <Link href="/" className="flex items-center">
                 <Image
-                  src="/assets/brand-bnw.png"
+                  src={brandBnW}
                   alt="Brand"
                   width={120}
                   height={40}

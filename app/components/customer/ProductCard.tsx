@@ -12,7 +12,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product, onAddToCart }: ProductCardProps) {
   const [imageError, setImageError] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+
 
   const lowestPrice = productService.getProductPriceMin(product);
   const highestPrice = productService.getProductPriceMax(product);
@@ -34,8 +34,6 @@ export default function ProductCard({ product, onAddToCart }: ProductCardProps) 
     <Link href={`/products/${product._id}`} className="block h-full">
       <div
         className="product-card group relative overflow-hidden border border-stone-100 h-full flex flex-col bg-white rounded-xl"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
         <div className="relative aspect-square overflow-hidden bg-stone-50 flex-shrink-0">
           {!imageError ? (
@@ -75,7 +73,7 @@ export default function ProductCard({ product, onAddToCart }: ProductCardProps) 
               className={`
                 absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent
                 transform transition-all duration-300
-                ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}
+                translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100
               `}
             >
               <button

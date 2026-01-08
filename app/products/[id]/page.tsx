@@ -118,7 +118,7 @@ export default function ProductDetailPage() {
     }
   };
 
-  const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:5000';
+  const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://jshope-backend-phs3.vercel.app';
   const getImageUrl = (path?: string): string => {
     if (!path) return '/placeholder-product.png';
     let url = path;

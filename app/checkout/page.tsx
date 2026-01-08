@@ -332,7 +332,7 @@ export default function CheckoutPage() {
                         
                         // Handle relative paths
                         if (!imgUrl.startsWith('http')) {
-                            const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:5000';
+                            const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://jshope-backend-phs3.vercel.app';
                             imgUrl = `${baseUrl}${imgUrl.startsWith('/') ? '' : '/'}${imgUrl}`;
                         }
 

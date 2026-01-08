@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import brandBnW from "@/app/assets/images/brand-bnw.png";
+import avatarJs from "@/app/assets/images/avatar-js.png";
 
 const COLORS = {
   primary: '#1B5E20',
@@ -95,7 +97,7 @@ export default function AdminSidebar() {
       <div style={{ paddingTop: '20px', paddingBottom: '20px', width: '100%', display: 'flex', justifyContent: 'center' }}>
         <div style={{ width: '80px', height: '80px', position: 'relative' }}>
           <Image 
-            src="/assets/brand-bnw.png" 
+            src={brandBnW} 
             alt="Brand" 
             fill
             style={{ objectFit: 'contain', transform: 'rotate(90deg)' }}
@@ -151,7 +153,7 @@ export default function AdminSidebar() {
           onClick={handleLogout}
         >
           <Image 
-            src="/assets/avatar-js.png" 
+            src={avatarJs} 
             alt="Admin" 
             width={48} 
             height={48}

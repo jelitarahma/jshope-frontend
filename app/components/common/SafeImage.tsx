@@ -54,7 +54,7 @@ export default function SafeImage({
       return imageSrc;
     }
     // If it's a relative path, prepend the API base URL
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/jshope';
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://jshope-backend-phs3.vercel.app/jshope';
     // Remove /api/jshope from base URL to get the server root
     const serverRoot = baseUrl.replace(/\/api\/jshope\/?$/, '');
     return `${serverRoot}${imageSrc.startsWith('/') ? '' : '/'}${imageSrc}`;

@@ -7,7 +7,7 @@ import { productService, Product } from '@/lib/services/productService';
 import SafeImage from '@/app/components/common/SafeImage';
 import Swal from 'sweetalert2';
 
-const baseURL = 'http://localhost:5000'; // Uploads are at root level, not /jshope
+const baseURL = 'https://jshope-backend-phs3.vercel.app';
 
 const COLORS = {
   primary: '#1B5E20',

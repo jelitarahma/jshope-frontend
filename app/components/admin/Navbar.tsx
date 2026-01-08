@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import brandBnW from "@/app/assets/images/brand-bnw.png";
+import avatarJs from "@/app/assets/images/avatar-js.png";
 
 const COLORS = {
   primary: '#1B5E20',
@@ -20,7 +22,7 @@ export default function AdminNavbar() {
       <div className="h-full px-8 flex items-center justify-between">
         <div className="flex items-center">
           <Image 
-            src="/assets/brand-bnw.png" 
+            src={brandBnW} 
             alt="Brand Logo" 
             width={120} 
             height={40}
@@ -39,7 +41,7 @@ export default function AdminNavbar() {
             style={{ borderColor: COLORS.greenBg }}
           >
             <Image 
-              src="/assets/avatar-js.png" 
+              src={avatarJs} 
               alt="Admin Avatar" 
               width={40} 
               height={40}

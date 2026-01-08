@@ -8,7 +8,7 @@ import { cartService, CartItem } from '@/lib/services/cartService';
 import { productService } from '@/lib/services/productService';
 import Swal from 'sweetalert2';
 
-const IMAGE_BASE_URL = 'http://localhost:5000';
+const IMAGE_BASE_URL = 'https://jshope-backend-phs3.vercel.app';
 
 interface CartItemWithCheck extends CartItem {
     is_checked?: boolean;

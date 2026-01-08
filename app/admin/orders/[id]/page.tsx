@@ -300,7 +300,7 @@ export default function OrderDetailPage() {
                     flexShrink: 0,
                   }}>
                     <img
-                      src={`http://localhost:5000${item.variant_id?.product_id?.thumbnail || item.thumbnail}`}
+                      src={`https://jshope-backend-phs3.vercel.app${item.variant_id?.product_id?.thumbnail || item.thumbnail}`}
                       alt={item.product_name}
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       onError={(e) => {
