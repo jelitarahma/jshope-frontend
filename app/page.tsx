@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { categoryService, Category } from '@/lib/services/categoryService';
 import { productService, Product } from '@/lib/services/productService';
+import saleImage from './assets/images/sale.jpg';
 
 const COLORS = {
   primary: '#1B5E20',
@@ -215,28 +216,27 @@ export default function HomePage() {
       <section className="py-5 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-4">
-            {/* Banner 1 - Purely Fresh Vegetables */}
+            {/* Banner 1 - Fashion */}
             <Link 
-              href="/products"
+              href="/products?category=fashion"
               className="group relative overflow-hidden rounded-xl h-[200px] md:h-[250px] flex items-center"
-              style={{ backgroundColor: '#d8f7daff' }}
+              style={{ backgroundColor: '#E3F2FD' }}
             >
               <div className="relative z-10 p-5 max-w-[60%]">
-                <p className="text-green-600 text-xs font-semibold mb-1 uppercase tracking-wider">Flat 30% Discount</p>
+                <p className="text-blue-600 text-xs font-semibold mb-1 uppercase tracking-wider">New Arrivals</p>
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 leading-tight">
-                  Purely Fresh<br/>Vegetables
+                  Trendy Fashion<br/>Collections
                 </h3>
                 <span 
-                  className="inline-block mt-3 px-4 py-2 text-sm font-semibold text-white rounded-lg transition-all group-hover:shadow-lg"
-                  style={{ backgroundColor: COLORS.primary }}
+                  className="inline-block mt-3 px-4 py-2 text-sm font-semibold text-white rounded-lg transition-all group-hover:shadow-lg bg-blue-600"
                 >
                   Shop Now
                 </span>
               </div>
               <div className="absolute right-0 top-0 bottom-0 w-[45%]">
                 <Image
-                  src="https://i.pinimg.com/736x/6c/c0/45/6cc045f8c1c6f3846a1c36d03e37892f.jpg"
-                  alt="Fresh Vegetables"
+                  src="https://i.pinimg.com/1200x/3c/41/25/3c4125d9738030d89827095163c6c291.jpg"
+                  alt="Fashion Collection"
                   fill
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   sizes="40vw"
@@ -245,27 +245,27 @@ export default function HomePage() {
               </div>
             </Link>
             
-            {/* Banner 2 - Fresh Fruits */}
+            {/* Banner 2 - Electronics */}
             <Link 
-              href="/products"
+              href="/products?category=electronics"
               className="group relative overflow-hidden rounded-xl h-[200px] md:h-[250px] flex items-center"
-              style={{ backgroundColor: '#f6eac1ff' }}
+              style={{ backgroundColor: '#F3E5F5' }}
             >
               <div className="relative z-10 p-5 max-w-[60%]">
-                <p className="text-amber-600 text-xs font-semibold mb-1 uppercase tracking-wider">Hot 25% Discount</p>
+                <p className="text-purple-600 text-xs font-semibold mb-1 uppercase tracking-wider">Latest Tech</p>
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 leading-tight">
-                  Fresh Fruits,<br/>Pure Quality
+                  Smart Gadgets<br/>& Accessories
                 </h3>
                 <span 
-                  className="inline-block mt-3 px-4 py-2 text-sm font-semibold text-white rounded-lg transition-all group-hover:shadow-lg bg-amber-500"
+                  className="inline-block mt-3 px-4 py-2 text-sm font-semibold text-white rounded-lg transition-all group-hover:shadow-lg bg-purple-600"
                 >
                   Discover Now
                 </span>
               </div>
               <div className="absolute right-0 top-0 bottom-0 w-[45%]">
                 <Image
-                  src="https://i.pinimg.com/1200x/b6/64/69/b664694b8eb1d60e322a7e769949c22b.jpg"
-                  alt="Fresh Fruits"
+                  src="https://i.pinimg.com/1200x/26/af/45/26af4543d55cbb8cafc2ed0228be2356.jpg"
+                  alt="Electronics"
                   fill
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   sizes="40vw"
@@ -282,7 +282,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <p className="text-green-600 text-xs font-semibold uppercase tracking-wider mb-1">Products</p>
+              <p className="text-green-600 text-xs font-semibold uppercase tracking-wider mb-1">Top Picks</p>
               <h3 className="text-xl md:text-2xl font-bold text-gray-800">Featured Products</h3>
             </div>
             <Link href="/products" className="text-green-700 font-semibold hover:text-green-800 text-sm flex items-center gap-1">
@@ -304,60 +304,51 @@ export default function HomePage() {
               <p className="col-span-6 text-center text-gray-500 py-8">Belum ada produk</p>
             )}
           </div>
-
-          {/* <div className="flex justify-center mt-5">
-            <Link 
-              href="/products"
-              className="px-5 py-2 border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:border-green-600 hover:text-green-700 transition-all"
-            >
-              Load More
-            </Link>
-          </div> */}
         </div>
       </section>
 
-      {/* Summer Discount Banner with Countdown */}
+      {/* Special Offer Banner with Countdown */}
       <section className="py-5" style={{ backgroundColor: COLORS.lightGreen }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-2xl overflow-hidden h-[300px] md:h-[350px] flex items-center" style={{ backgroundColor: '#026630' }}>
+          <div className="relative rounded-2xl overflow-hidden h-[300px] md:h-[350px] flex items-center" style={{ backgroundColor: '#182074' }}>
             {/* Left side - Text content */}
-            <div className="relative z-10 p-5 md:p-12 max-w-[30%] text-white">
+            <div className="relative z-10 p-5 md:p-12 max-w-[40%] text-white">
               <h3 className="text-3xl md:text-4xl font-bold mb-3 leading-tight text-white">
-                Summer Discount
+                Mega Sale Event
               </h3>
-              <p className="text-green-100 mb-6 text-sm md:text-base">
-                Get Rp. 100.000 Off - Limited Time Only!
+              <p className="text-blue-100 mb-6 text-sm md:text-base">
+                Up to 50% Off on Selected Items - Don't Miss Out!
               </p>
               
               {/* Countdown Timer */}
               <div className="flex gap-3 mb-6">
                 {[
-                  { value: '04', label: 'Days' },
-                  { value: '14', label: 'Hours' },
-                  { value: '48', label: 'Mins' },
+                  { value: '30', label: 'Days' },
+                  { value: '05', label: 'Hours' },
+                  { value: '42', label: 'Mins' },
                   { value: '18', label: 'Secs' },
                 ].map((item, idx) => (
                   <div key={idx} className="text-center">
-                    <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-lg flex items-center justify-center mb-1">
-                      <span className="text-2xl md:text-3xl font-bold text-orange-400">{item.value}</span>
+                    <div className="w-14 h-14 md:w-16 md:h-16 bg-white/10 backdrop-blur-md rounded-lg flex items-center justify-center mb-1 border border-white/20">
+                      <span className="text-2xl md:text-3xl font-bold text-white">{item.value}</span>
                     </div>
-                    <span className="text-xs text-green-100">{item.label}</span>
+                    <span className="text-xs text-blue-100 uppercase tracking-widest font-medium">{item.label}</span>
                   </div>
                 ))}
               </div>
             </div>
             
             {/* Right side - Image */}
-            <div className="absolute right-0 top-0 bottom-0 w-[70%] md:w-[70%]">
+            <div className="absolute right-0 top-0 bottom-0 w-[70%]">
               <Image
-                src="https://i.pinimg.com/1200x/aa/b5/1d/aab51de5a91e6e5d4789c3b8d68ab662.jpg"
-                alt="Summer Discount"
+                src={saleImage}
+                alt="Mega Sale"
                 fill
                 className="object-cover object-center"
-                sizes="50vw"
+                sizes="20vw"
                 unoptimized
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-green-800 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#182074] via-[#182074]/10 to-transparent" />
             </div>
           </div>
         </div>
