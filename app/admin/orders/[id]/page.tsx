@@ -316,7 +316,7 @@ export default function OrderDetailPage() {
                       {item.product_name}
                     </h3>
                     <p style={{ fontSize: '12px', color: '#6b7280', marginBottom: '4px' }}>
-                      SKU: {item.variant_id.sku}
+                      SKU: {item.variant_id?.sku || 'N/A'}
                     </p>
                     {item.variant_attributes && Object.keys(item.variant_attributes).length > 0 && (
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '8px' }}>

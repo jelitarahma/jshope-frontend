@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
+import { authService } from '@/lib/services/authService';
 
 interface UserData {
   username?: string;
@@ -18,16 +19,17 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
-  const checkAuth = useCallback(() => {
+  const checkAuth = useCallback(async () => {
     if (typeof window !== 'undefined') {
       const token = localStorage.getItem('token');
       const savedRole = localStorage.getItem('role');
       const savedUser = localStorage.getItem('user');
 
       if (token && savedRole) {
+        // Optimistically set logged in first to avoid flash, but validate in background
         setIsLoggedIn(true);
         setRole(savedRole);
-
+        
         if (savedUser) {
           try {
             const user: UserData = JSON.parse(savedUser);
@@ -36,6 +38,22 @@ export default function Navbar() {
             setUsername('User');
           }
         }
+        
+        // Validate token with server in background
+        authService.validateToken().then((user) => {
+           if (!user) {
+             // If validation fails (returns null because of 401), logout
+             // checkAuth will be called by 'storage' event if logout modifies storage,
+             // but we can also force it here if needed, or rely on internal logout of validateToken.
+             // validateToken calls logout() on 401, so we just update state.
+             if (!localStorage.getItem('token')) {
+                setIsLoggedIn(false);
+                setRole(null);
+                setUsername('');
+             }
+           }
+        });
+
       } else {
         setIsLoggedIn(false);
         setRole(null);
@@ -45,16 +63,14 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    // Initial check and validation
     checkAuth();
-
+    
     const handleStorageChange = () => checkAuth();
     window.addEventListener('storage', handleStorageChange);
 
-    const interval = setInterval(checkAuth, 1000);
-
     return () => {
       window.removeEventListener('storage', handleStorageChange);
-      clearInterval(interval);
     };
   }, [checkAuth]);
 

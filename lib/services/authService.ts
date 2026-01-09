@@ -73,4 +73,22 @@ export const authService = {
     localStorage.setItem('role', user.role);
     localStorage.setItem('user', JSON.stringify(user));
   },
+
+  async validateToken(): Promise<User | null> {
+    try {
+      // Try to fetch profile to validate token
+      // Assuming /auth/profile or /users/profile exists. 
+      // If your backend uses a different endpoint for "me", change this.
+      const response = await api.get('/auth/profile'); 
+      return response.data;
+    } catch (error) {
+      if ((error as any).response?.status === 401) {
+        this.logout();
+        return null;
+      }
+      // If 404/others, we might assume token is still valid (or endpoint doesn't exist)
+      // but to be safe for "always logged in" issue, we only clear on 401.
+      return null;
+    }
+  },
 };
